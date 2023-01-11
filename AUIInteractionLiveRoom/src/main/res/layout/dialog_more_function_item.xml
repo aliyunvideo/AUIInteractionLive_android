@@ -1,0 +1,5 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MoreFunctionItemStyle"
+    tools:drawableStart="@drawable/more_fucntion_goods_shop"
+    tools:text="商品橱窗" />

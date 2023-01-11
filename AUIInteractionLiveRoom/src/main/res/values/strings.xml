@@ -1,0 +1,17 @@
+<resources>
+    <string name="live_not_start_curtain_text">直播尚未开始～</string>
+
+    <string name="live_ban_all_tips">主播已开启全员禁言…</string>
+    <string name="live_ban_tips">你被主播禁言</string>
+    <string name="live_input_default_tips">说点什么…</string>
+    <string name="live_stop_tips">直播已结束</string>
+
+    <string name="assist_page_title">配置</string>
+    <string name="reboot_tips">保存后应用将会重启</string>
+    <string name="ok">确认</string>
+    <string name="cancel">取消</string>
+    <string name="no_config_updated">未更改配置信息</string>
+    <string name="list_room">直播间列表</string>
+    <string name="before_live">上场直播</string>
+    <string name="create_room">创建直播间</string>
+</resources>

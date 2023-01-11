@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layout_gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="HardcodedText">
+
+    <com.aliyun.aliinteraction.uikit.uibase.view.FixedAspectRatioFrameLayout
+        android:id="@+id/bgImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:aspectRatioHeight="9"
+        app:aspectRatioWidth="16"
+        tools:layout_height="264dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/entrance_page_bg" />
+    </com.aliyun.aliinteraction.uikit.uibase.view.FixedAspectRatioFrameLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bgImage"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="30dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/bgImage"
+        android:layout_marginLeft="@dimen/scene_item_general_gap"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="@dimen/scene_item_general_gap"
+        android:background="@color/white" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="right"
+        android:padding="6dp"
+        android:alpha="0.15"
+        android:lines="1"
+        android:ellipsize="end"
+        android:textColor="@color/colorGray999"
+        tools:text="1.5.1.20220224007-SNAPSHOT.allconfigurable"
+        />
+</RelativeLayout>

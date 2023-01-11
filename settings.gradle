@@ -1,0 +1,28 @@
+include ':app'
+rootProject.name = "AliInteractionLiveDemo-Android"
+
+include(':AUIInteractionLiveRoom')
+project(':AUIInteractionLiveRoom').projectDir = new File("AUIInteractionLiveRoom")
+
+include(':AUIInteractionUikit')
+project(':AUIInteractionUikit').projectDir = new File("AUIInteractionUikit")
+
+include(':AUIInteractionCore')
+project(':AUIInteractionCore').projectDir = new File("AUIInteractionCore")
+include(':AUIInteractionBeauty')
+project(':AUIInteractionBeauty').projectDir = new File("AUIInteractionBeauty")
+
+include(':AUIInteractionBusiness:AUICommon')
+project(':AUIInteractionBusiness:AUICommon').projectDir = new File("AUIInteractionBusiness/AUICommon")
+
+include(':AUIInteractionBusiness:AUIPlayer')
+project(':AUIInteractionBusiness:AUIPlayer').projectDir = new File("AUIInteractionBusiness/AUIPlayer")
+
+include(':AUIInteractionBusiness:AUIMessage')
+project(':AUIInteractionBusiness:AUIMessage').projectDir = new File("AUIInteractionBusiness/AUIMessage")
+
+def debuggerPath = hasProperty('debugger.path') ? getProperty('debugger.path') : null
+if (debuggerPath != null && new File(debuggerPath).exists()) {
+    include(':debugger')
+    project(':debugger').projectDir = new File(debuggerPath)
+}

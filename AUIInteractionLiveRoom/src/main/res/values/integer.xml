@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="layoutWeightBusinessLoginTopSpace">10</integer>
+    <integer name="layoutWeightBusinessLoginTopSpaceWhenKeyboardShown">10</integer>
+    <integer name="layoutWeightBusinessLoginMiddleSpace">10</integer>
+    <integer name="layoutWeightBusinessLoginBottomSpace">20</integer>
+</resources>

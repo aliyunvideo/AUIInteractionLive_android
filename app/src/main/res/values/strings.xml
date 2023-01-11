@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">互动直播</string>
+
+    <string name="shortcut_qr">扫一扫</string>
+
+    <!-- LeakCanary命名 -->
+</resources>

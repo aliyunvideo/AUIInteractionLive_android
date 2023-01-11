@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        google()
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/releases' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.2'
+    }
+}
+
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation "commons-codec:commons-codec:1.10"
+    compileOnly fileTree(dir: '../libs', include: ['*.aar'])
+    implementation 'androidx.leanback:leanback:1.0.0'
+    implementation project(':AUIInteractionBusiness:AUICommon')
+    implementation project(':AUIInteractionBusiness:AUIPlayer')
+    implementation project(':AUIInteractionBusiness:AUIMessage')
+    api project(':AUIInteractionUikit')
+    api project(':AUIInteractionCore')
+    api project(':AUIInteractionBeauty')
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
+}

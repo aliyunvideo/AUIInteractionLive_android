@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.aliyun.aliinteraction.liveroom">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application>
+        <activity
+            android:name=".LiveActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme4LiveActivity"
+            android:windowSoftInputMode="adjustNothing" />
+
+        <activity
+            android:name="com.aliyun.aliinteraction.liveroom.activity.CreateRoomActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.aliyun.aliinteraction.liveroom.activity.RoomListActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.aliyun.aliinteraction.liveroom.activity.ChooseRoomTypeActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.aliyun.alivc_license.licensekey"
+            tools:node="replace"
+            android:value="foIVziMaUHaRqgDyhf6b6eb8fcf014af39535d0720a32054e" />
+        <meta-data
+            android:name="com.aliyun.alivc_license.licensefile"
+            tools:node="replace"
+            android:value="assets/cert/release.crt" />
+    </application>
+</manifest>

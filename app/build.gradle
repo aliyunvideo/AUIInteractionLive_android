@@ -1,0 +1,112 @@
+apply plugin: 'com.android.application'
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenLocal()
+        mavenCentral()
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/releases' }
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.2'
+    }
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    google()
+    maven { url 'https://maven.aliyun.com/nexus/content/repositories/releases' }
+}
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
+
+    signingConfigs {
+        release {
+            keyAlias 'key0'
+            keyPassword 'livepush'
+            storeFile file('interaction.jks')
+            storePassword 'livepush'
+        }
+        debug {
+            keyAlias 'key0'
+            keyPassword 'livepush'
+            storeFile file('interaction.jks')
+            storePassword 'livepush'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.aliyun.interaction.app"
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionCode 1
+        versionName '1.0.0'
+        manifestPlaceholders = [
+                appLabel    : "@string/app_name",
+                appIcon     : "@mipmap/ic_launcher_general",
+                appIconRound: "@mipmap/ic_launcher_general",
+        ]
+
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+
+    buildTypes {
+        release {
+            zipAlignEnabled true
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro', 'proguard-rules-app.pro'
+            consumerProguardFiles 'proguard-rules.pro' //子模块
+            buildConfigField "Boolean", "DEBUGGING_FEATURES", "false"
+        }
+        debug {
+            buildConfigField "Boolean", "DEBUGGING_FEATURES", "false"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+        disable 'MissingTranslation'
+    }
+}
+
+
+dependencies {
+    implementation fileTree(dir: "../libs", include: ["*.jar", "*.aar"])
+
+    // 外部依赖
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.leanback:leanback:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    // 本地依赖
+    implementation project(':AUIInteractionLiveRoom')
+    implementation project(':AUIInteractionUikit')
+    implementation project(':AUIInteractionBusiness:AUICommon')
+    implementation project(':AUIInteractionBusiness:AUIPlayer')
+    api project(':AUIInteractionCore')
+
+    // 开发依赖
+    println('---------------------------------------')
+    rootProject.allprojects {
+        if (it.name == 'debugger') {
+            implementation it
+            println('debugger setup')
+        }
+    }
+    println('---------------------------------------')
+}
